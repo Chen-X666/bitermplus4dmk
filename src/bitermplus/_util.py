@@ -139,7 +139,8 @@ def get_biterms(
             for j in range(i+1, min(i + win, doc_len)):
                 wi = min(doc[i], doc[j])
                 wj = max(doc[i], doc[j])
-                doc_biterms.append([wi, wj])
+                if wi != wj:
+                    doc_biterms.append([wi, wj])
         biterms.append(doc_biterms)
     return biterms
 
